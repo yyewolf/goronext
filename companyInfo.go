@@ -11,7 +11,7 @@ type CompanyInfo struct {
 	Loan bool
 }
 
-func getCompanyInfo(id string, market string) (*CompanyInfo, error) {
+func GetCompanyInfo(id string, market string) (*CompanyInfo, error) {
 	url := companyInfoEndpoint(id, market)
 	resp, err := http.Get(url)
 	if err != nil {

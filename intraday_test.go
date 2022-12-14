@@ -5,7 +5,7 @@ import (
 )
 
 func TestIntraday(t *testing.T) {
-	trades, err := getAllIntraDay("FR0010340141", "XPAR")
+	trades, err := GetAllIntraDay("FR0010340141", "XPAR")
 	if err != nil {
 		t.Error(err)
 	}

@@ -5,7 +5,7 @@ import (
 )
 
 func TestCompanyInfo(t *testing.T) {
-	info, err := getCompanyInfo("FR0010340141", "XPAR")
+	info, err := GetCompanyInfo("FR0010340141", "XPAR")
 	if err != nil {
 		t.Error(err)
 	}

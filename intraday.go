@@ -28,7 +28,7 @@ type RawData struct {
 	} `json:"rows"`
 }
 
-func parsePrice(price string) (int, error) {
+func ParsePrice(price string) (int, error) {
 	p := strings.Split(price, ".")
 	whole := p[0]
 	decimal := p[1]
@@ -52,7 +52,7 @@ func parsePrice(price string) (int, error) {
 	return w*10000 + d, nil
 }
 
-func getAllIntraDay(id, market string) ([]*Trade, error) {
+func GetAllIntraDay(id, market string) ([]*Trade, error) {
 	url := intradayEndpoint(id, market)
 
 	today := time.Now().Format("2006-02-01")
@@ -87,7 +87,7 @@ func getAllIntraDay(id, market string) ([]*Trade, error) {
 			return nil, err
 		}
 
-		price, err := parsePrice(row.Tprice)
+		price, err := ParsePrice(row.Tprice)
 		if err != nil {
 			return nil, err
 		}

@@ -5,7 +5,7 @@ import (
 )
 
 func TestFindStock(t *testing.T) {
-	s, err := findAllStock()
+	s, err := FindAllStock()
 	if err != nil {
 		t.Error(err)
 	}

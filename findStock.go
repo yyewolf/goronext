@@ -16,7 +16,7 @@ type Stock struct {
 	Market   string
 }
 
-func findAllStock() (stocks []*Stock, err error) {
+func FindAllStock() (stocks []*Stock, err error) {
 	goOn := true
 	page := 0
 	for goOn {
