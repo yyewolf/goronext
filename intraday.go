@@ -29,6 +29,7 @@ type RawData struct {
 }
 
 func ParsePrice(price string) (int, error) {
+	price = strings.ReplaceAll(price, ",", "")
 	p := strings.Split(price, ".")
 	whole := p[0]
 	decimal := p[1]
@@ -81,7 +82,7 @@ func GetAllIntraDay(id, market string) ([]*Trade, error) {
 		n := time.Now()
 		t = t.AddDate(n.Year(), int(n.Month())-1, n.Day()) // add 1 day to get the correct date
 
-		row.Tvolume = strings.ReplaceAll(row.Tvolume, ",", ".")
+		row.Tvolume = strings.ReplaceAll(row.Tvolume, ",", "")
 		vol, err := strconv.ParseFloat(row.Tvolume, 64)
 		if err != nil {
 			return nil, err
