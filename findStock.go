@@ -20,7 +20,7 @@ func FindAllStock() (stocks []*Stock, err error) {
 	goOn := true
 	page := 0
 	for goOn {
-		url := searchStock("FR001", page)
+		url := searchStock("FR0", page)
 		resp, err := http.Get(url)
 		if err != nil {
 			return nil, err
