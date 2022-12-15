@@ -53,11 +53,11 @@ func ParsePrice(price string) (int, error) {
 	return w*10000 + d, nil
 }
 
-func GetAllIntraDay(id, market string) ([]*Trade, error) {
+func GetAllIntraDay(id, market, amount string) ([]*Trade, error) {
 	url := intradayEndpoint(id, market)
 
 	today := time.Now().Format("2006-02-01")
-	body := strings.NewReader(fmt.Sprintf("nbitems=50000&date=%s&timezone=CET", today))
+	body := strings.NewReader(fmt.Sprintf("nbitems=%s&date=%s&timezone=CET", amount, today))
 
 	resp, err := http.Post(url, "application/x-www-form-urlencoded", body)
 	if err != nil {
