@@ -4,6 +4,7 @@ import (
 	"bytes"
 	"io"
 	"net/http"
+	"strings"
 
 	"golang.org/x/net/html"
 )
@@ -70,6 +71,9 @@ func FindAllStock() (stocks []*Stock, err error) {
 				}
 				stock.Symbol = td.FirstChild.Data
 				td = td.NextSibling.NextSibling
+				if strings.Contains(stock.Symbol, "No Instrument") {
+					break
+				}
 				stock.Name = td.FirstChild.FirstChild.Data
 				td = td.NextSibling.NextSibling
 				stock.ID = td.FirstChild.Data
