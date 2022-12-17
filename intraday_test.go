@@ -2,10 +2,11 @@ package goronext
 
 import (
 	"testing"
+	"time"
 )
 
 func TestIntraday(t *testing.T) {
-	trades, err := GetAllIntraDay("FR0010340141", "XPAR", "100")
+	trades, err := GetAllIntraDay("FR0010340141", "XPAR", "100", time.Now())
 	if err != nil {
 		t.Error(err)
 	}
